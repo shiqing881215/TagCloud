@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>TagCanvas example</title>
+		<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 		<script type="text/javascript" src="jquery.tagcanvas.min.js"></script>
 		<script type="text/javascript">
@@ -19,18 +20,32 @@
           			$('#myCanvasContainer').hide();
         		}
       		});
+
+      		function changeShape() {
+      			debugger;
+      			var shape = $("#shape").val();
+      			$('#myCanvas').tagcanvas({
+          			textColour: '#ff0000',
+          			outlineColour: '#ff00ff',
+          			reverse: true,
+          			depth: 0.8,
+          			maxSpeed: 0.04,
+          			shape: shape,
+          			minSpeed: 0.01     // This makes the cloud rotate when the mouse out of the canvas
+        		},'tags')
+      		}
     </script>
 	</head>
 
 	<body>
 		<div id="myCanvasContainer">
-			<canvas width="400" height="400" id="myCanvas" style="margin-left: 30%; margin-right: auto;">
+			<canvas width="400" height="400" id="myCanvas" style="margin-left: 30%;">
 		 		<p>Anything in here will be replaced on browsers that support the canvas element</p>
 			</canvas>
 		</div>
 		<div id="tags">
 			<ul>
-				<li><a href="http://plus.google.com" target="_blank"><img src="./img/Google-plus-icon.png" style="width:50px; height:50px;"/></a></li>
+				<li><a href="http://plus.google.com" target="_blank" id="googlePlus"><img src="./img/Google-plus-icon.png" style="width:50px; height:50px;" id="googlePlus"/></a></li>
 			    <li><a href="http://www.facebook.com" target="_blank"><img src="./img/Facebook-icon.png" style="width:50px; height:50px;"/></a></li>
 			    <li><a href="http://www.flickr.com" target="_blank"><img src="./img/Flickr-icon.png" style="width:50px; height:50px;"/></a></li>
 			    <li><a href="http://www.github.com" target="_blank"><img src="./img/Github-icon.png" style="width:50px; height:50px;"/></a></li>
@@ -42,6 +57,28 @@
 			    <li><a href="http://www.tumblr.com" target="_blank"><img src="./img/Tumblr-icon.png" style="width:50px; height:50px;"/></a></li>
 			    <li><a href="http://www.youtube.com" target="_blank"><img src="./img/Youtube-icon.png" style="width:50px; height:50px;"/></a></li>
 			</ul>
+		</div>
+
+		<div style="margin-left:35%; margin-top:30px;">
+			<button class="btn btn-primary" onclick="$('#myCanvas').tagcanvas({
+          			textColour: '#ff0000',
+          			outlineColour: '#ff00ff',
+          			reverse: true,
+          			depth: 0.8,
+          			maxSpeed: 0.04,
+          			shape: 'hcylinder',
+          			minSpeed: 0.01     // This makes the cloud rotate when the mouse out of the canvas
+        		},'tags');">ReStart</button>
+			<button class="btn btn-primary" onclick="$('#myCanvas').tagcanvas('pause');">Pause</button>
+			<button class="btn btn-primary" onclick="$('#myCanvas').tagcanvas('resume');">Resume</button>
+			<button class="btn btn-primary" onclick="$('#myCanvas').tagcanvas('rotatetag', {id: 'googlePlus', lat: 30, lng: -45});">Rotate</button>
+			<select id="shape" onchange="changeShape()" class="form-control" style="margin-top:10px; width:242px;">
+				<option value="sphere">Sphere</option>
+			  	<option value="vcylinder">Vertical Cylinder</option>
+			  	<option value="hcylinder">Horizontal Cylinder</option>
+			  	<option value="hring">Horizontal Ring</option>
+			  	<option value="vring(0.5)">Vertical Ring</option>
+			</select>
 		</div>
 	</body>
 

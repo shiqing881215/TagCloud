@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jqcloud example</title>
+		<link rel="stylesheet" type="text/css" href="jqcloud.css" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script type="text/javascript" src="jqcloud-1.0.4.js"></script>
+
+		<script type="text/javascript">
+			var word_arrary = [
+				{text: "Kobe", weight:15},
+				{text: "Lebron", weight:9, link:"http://www.lebronjames.com/"},
+				{text: "Durant", weight:7, html:{title:"This is Kevin Durant"}},
+				{text: "Ross", weight:5},
+				{text: "Curry", weight:3}
+			];
+
+			$(function() {
+				$("#example").jQCloud(word_arrary);
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="example" style="width: 550px; height: 350px;"></div>
+	</body>
+</html>

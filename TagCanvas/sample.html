@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TagCanvas example</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.tagcanvas.min.js"></script>
+		<script type="text/javascript">
+      		$(document).ready(function() {
+        		if(!$('#myCanvas').tagcanvas({
+          			textColour: '#ff0000',
+          			outlineColour: '#ff00ff',
+          			reverse: true,
+          			depth: 0.8,
+          			maxSpeed: 0.04,
+          			shape: 'hcylinder',
+          			minSpeed: 0.01     // This makes the cloud rotate when the mouse out of the canvas
+        		},'tags')) {
+          			// something went wrong, hide the canvas container
+          			$('#myCanvasContainer').hide();
+        		}
+      		});
+    </script>
+	</head>
+
+	<body>
+		<div id="myCanvasContainer">
+			<canvas width="400" height="400" id="myCanvas" style="margin-left: 30%; margin-right: auto;">
+		 		<p>Anything in here will be replaced on browsers that support the canvas element</p>
+			</canvas>
+		</div>
+		<div id="tags">
+			<ul>
+				<li><a href="http://plus.google.com" target="_blank"><img src="./img/Google-plus-icon.png" style="width:50px; height:50px;"/></a></li>
+			    <li><a href="http://www.facebook.com" target="_blank"><img src="./img/Facebook-icon.png" style="width:50px; height:50px;"/></a></li>
+			    <li><a href="http://www.flickr.com" target="_blank"><img src="./img/Flickr-icon.png" style="width:50px; height:50px;"/></a></li>
+			    <li><a href="http://www.github.com" target="_blank"><img src="./img/Github-icon.png" style="width:50px; height:50px;"/></a></li>
+			    <li><a href="http://www.twitter.com" target="_blank"><img src="./img/Twitter-icon.png" style="width:50px; height:50px;"/></a></li>
+			    <li><a href="http://www.linkedin.com" target="_blank"><img src="./img/Linkedin-icon.png" style="width:50px; height:50px;"/></a></li>
+			    <li><a href="http://www.pinterest.com" target="_blank"><img src="./img/Pinterest-icon.png" style="width:50px; height:50px;"/></a></li>
+			    <li><a href="http://www.instagram.com" target="_blank"><img src="./img/Instagram-icon.png" style="width:50px; height:50px;"/></a></li>
+			    <li><a href="http://www.foursquare.com" target="_blank"><img src="./img/Foursquare-icon.png" style="width:50px; height:50px;"/></a></li>
+			    <li><a href="http://www.tumblr.com" target="_blank"><img src="./img/Tumblr-icon.png" style="width:50px; height:50px;"/></a></li>
+			    <li><a href="http://www.youtube.com" target="_blank"><img src="./img/Youtube-icon.png" style="width:50px; height:50px;"/></a></li>
+			</ul>
+		</div>
+	</body>
+
+	
+</html>
